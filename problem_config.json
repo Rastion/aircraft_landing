@@ -6,12 +6,7 @@
     "problem_type": "AircraftLanding",
     "description": "Schedule landing times and order for a set of planes to minimize penalty costs from early or late landings, while respecting separation time constraints. Instance data is from the OR-Library.",
     "solution_representation": "dictionary with keys 'landing_order' (list of int) and 'landing_times' (list of int)",
-    "keywords": [
-      "aircraft landing",
-      "scheduling",
-      "optimization",
-      "OR-Library"
-    ],
+    "keywords": ["aircraft landing", "scheduling", "combinatorial", "job scheduling", "separation constraints", "optimization"],
     "data_format": {
       "instance_file": {
         "format": "First line: number of planes and freeze time. Then, for each plane: appearance time, earliest landing time, target landing time, latest landing time, penalty cost for early landing, penalty cost for late landing, followed by separation times for each other plane."
