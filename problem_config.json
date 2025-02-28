@@ -1,38 +1,42 @@
 {
-    "entry_point": "aircraft_landing_problem:AircraftLandingProblem",
-    "default_params": {
-      "instance_file": "instances/airland1.txt"
+  "entry_point": "aircraft_landing_problem:AircraftLandingProblem",
+  "default_params": {
+    "instance_file": "instances/airland1.txt"
+  },
+  "creator": "Rastion",
+  "type": "problem",
+  "problem_name": "Aircraft Landing",
+  "description": "Schedule landing times and order for a set of planes to minimize penalty costs from early or late landings, while respecting separation time constraints. Instance data is from the OR-Library.",
+  "link_to_dataset": "https://github.com/Rastion/aircraft_landing/blob/main/instances/airland1.txt",
+  "keywords": [
+    "aircraft landing",
+    "scheduling",
+    "optimization",
+    "OR-Library"
+  ],
+  "data_format": {
+    "instance_file": {
+      "format": "First line: number of planes and freeze time. Then, for each plane: appearance time, earliest landing time, target landing time, latest landing time, penalty cost for early landing, penalty cost for late landing, followed by separation times for each other plane."
+    }
+  },
+  "decision_variables": {
+    "landing_order": {
+      "type": "list of int",
+      "description": "Permutation of plane indices representing the landing sequence."
     },
-    "problem_type": "AircraftLanding",
-    "description": "Schedule landing times and order for a set of planes to minimize penalty costs from early or late landings, while respecting separation time constraints. Instance data is from the OR-Library.",
-    "solution_representation": "dictionary with keys 'landing_order' (list of int) and 'landing_times' (list of int)",
-    "keywords": ["aircraft landing", "scheduling", "combinatorial", "job scheduling", "separation constraints", "optimization"],
-    "data_format": {
-      "instance_file": {
-        "format": "First line: number of planes and freeze time. Then, for each plane: appearance time, earliest landing time, target landing time, latest landing time, penalty cost for early landing, penalty cost for late landing, followed by separation times for each other plane."
-      }
-    },
-    "decision_variables": {
-      "landing_order": {
-        "type": "list of int",
-        "description": "Permutation of plane indices representing the landing sequence."
-      },
-      "landing_times": {
-        "type": "list of int",
-        "description": "Scheduled landing times corresponding to the landing order."
-      }
-    },
-    "objective": {
-      "type": "minimization",
-      "function": "Total penalty cost due to deviations from target landing times.",
-      "description": "For each plane, if the landing time is before the target, the cost is (target - landing_time) * earliness_cost; if after, (landing_time - target) * tardiness_cost. The objective is to minimize the sum of these penalties."
-    },
-    "compatible_optimizers": [
-      "genetic_algorithm",
-      "simulated_annealing",
-      "tabu_search",
-      "particle_swarm"
-    ],
-    "notes": "This is the static version of the aircraft landing scheduling problem. Appearance time and freeze time are ignored."
+    "landing_times": {
+      "type": "list of int",
+      "description": "Scheduled landing times corresponding to the landing order."
+    }
+  },
+  "objective": {
+    "type": "minimization",
+    "function": "Total penalty cost due to deviations from target landing times.",
+    "description": "For each plane, if the landing time is before the target, the cost is (target - landing_time) * earliness_cost; if after, (landing_time - target) * tardiness_cost. The objective is to minimize the sum of these penalties."
+  },
+  "solution_representation": "dictionary with keys 'landing_order' (list of int) and 'landing_times' (list of int)",
+  "formulations": [
+    ""
+  ]
   }
   
