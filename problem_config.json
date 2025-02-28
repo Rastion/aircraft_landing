@@ -12,7 +12,8 @@
     "aircraft landing",
     "scheduling",
     "optimization",
-    "OR-Library"
+    "OR-Library",
+    "workforce"
   ],
   "data_format": {
     "instance_file": {
